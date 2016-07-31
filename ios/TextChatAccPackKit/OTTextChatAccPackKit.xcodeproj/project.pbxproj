@@ -34,7 +34,7 @@
 		A006F1991D4028A8001295D7 /* OTTextMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65F11D1D9DC900F7AAC5 /* OTTextMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A006F19B1D4028A8001295D7 /* OTTextChatView_UserInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65EF1D1D9DC900F7AAC5 /* OTTextChatView_UserInterface.h */; };
 		A006F19C1D4028A8001295D7 /* OTTextChatKitBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = A0DEAAD61D2F1FB4004CF13A /* OTTextChatKitBundle.h */; };
-		A006F19D1D4028A8001295D7 /* OTTextChatTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65E61D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h */; };
+		A006F19D1D4028A8001295D7 /* OTTextChatTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65E61D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A006F19F1D4028A8001295D7 /* OTTextMessageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65F41D1D9DC900F7AAC5 /* OTTextMessageManager.h */; };
 		A006F1A01D4028A8001295D7 /* GCDHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65A91D1D9DC900F7AAC5 /* GCDHelper.h */; };
 		A006F1A11D4028A8001295D7 /* OTTextMessage_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65F31D1D9DC900F7AAC5 /* OTTextMessage_Private.h */; };
@@ -57,7 +57,7 @@
 		A0AC65FA1D1D9DC900F7AAC5 /* UIViewController+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65AB1D1D9DC900F7AAC5 /* UIViewController+Helper.h */; };
 		A0AC65FC1D1D9DC900F7AAC5 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AC65AC1D1D9DC900F7AAC5 /* UIViewController+Helper.m */; };
 		A0AC66321D1D9DC900F7AAC5 /* OTTextChatKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65E41D1D9DC900F7AAC5 /* OTTextChatKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A0AC66341D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65E61D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h */; };
+		A0AC66341D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65E61D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0AC66361D1D9DC900F7AAC5 /* OTTextChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AC65E71D1D9DC900F7AAC5 /* OTTextChatTableViewCell.m */; };
 		A0AC663E1D1D9DC900F7AAC5 /* OTTextChatView.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC65ED1D1D9DC900F7AAC5 /* OTTextChatView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0AC66401D1D9DC900F7AAC5 /* OTTextChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AC65EE1D1D9DC900F7AAC5 /* OTTextChatView.m */; };
@@ -332,9 +332,9 @@
 				A006F1971D4028A8001295D7 /* OTTextChatKit.h in Headers */,
 				A006F1981D4028A8001295D7 /* OTTextChatView.h in Headers */,
 				A006F1991D4028A8001295D7 /* OTTextMessage.h in Headers */,
+				A006F19D1D4028A8001295D7 /* OTTextChatTableViewCell.h in Headers */,
 				A006F19B1D4028A8001295D7 /* OTTextChatView_UserInterface.h in Headers */,
 				A006F19C1D4028A8001295D7 /* OTTextChatKitBundle.h in Headers */,
-				A006F19D1D4028A8001295D7 /* OTTextChatTableViewCell.h in Headers */,
 				A006F19F1D4028A8001295D7 /* OTTextMessageManager.h in Headers */,
 				A006F1A01D4028A8001295D7 /* GCDHelper.h in Headers */,
 				A006F1A11D4028A8001295D7 /* OTTextMessage_Private.h in Headers */,
@@ -349,9 +349,9 @@
 				A0AC66321D1D9DC900F7AAC5 /* OTTextChatKit.h in Headers */,
 				A0AC663E1D1D9DC900F7AAC5 /* OTTextChatView.h in Headers */,
 				A0AC66441D1D9DC900F7AAC5 /* OTTextMessage.h in Headers */,
+				A0AC66341D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h in Headers */,
 				A0AC66421D1D9DC900F7AAC5 /* OTTextChatView_UserInterface.h in Headers */,
 				A0DEAAD81D2F1FB4004CF13A /* OTTextChatKitBundle.h in Headers */,
-				A0AC66341D1D9DC900F7AAC5 /* OTTextChatTableViewCell.h in Headers */,
 				A0E9FB111D4147E300460599 /* OTTestingInfo.h in Headers */,
 				A0AC664A1D1D9DC900F7AAC5 /* OTTextMessageManager.h in Headers */,
 				A0AC65F61D1D9DC900F7AAC5 /* GCDHelper.h in Headers */,

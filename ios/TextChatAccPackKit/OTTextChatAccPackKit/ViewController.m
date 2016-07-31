@@ -31,9 +31,5 @@
     } else {
         [self.textChatView dismiss];
     }
-    // OPTIONAL COLOR CHANGING
-    // [TextChatUICustomizator setTableViewCellSendBackgroundColor:[UIColor orangeColor]];
-    // [TextChatUICustomizator setTableViewCellReceiveBackgroundColor:[UIColor yellowColor]];
-
 }
 @end

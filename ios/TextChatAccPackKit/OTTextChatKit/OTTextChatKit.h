@@ -6,3 +6,4 @@
 
 #import <OTTextChatKit/OTTextChatView.h>
 #import <OTTextChatKit/OTTextMessage.h>
+#import <OTTextChatKit/OTTextChatTableViewCell.h>
