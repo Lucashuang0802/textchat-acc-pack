@@ -18,7 +18,6 @@
 #import "OTTestingInfo.h"
 
 #import "OTTextChatView_UserInterface.h"
-#import "OTTextChatUICustomizator_Private.h"
 
 static CGFloat StatusBarHeight = 20.0;
 
@@ -26,7 +25,6 @@ static CGFloat StatusBarHeight = 20.0;
 
 @property (nonatomic) BOOL show;
 @property (nonatomic) OTTextMessageManager *textChatComponent;
-@property (nonatomic) OTTextChatUICustomizator *customizator;
 @property (nonatomic) UIView *attachedBottomView;
 
 @property (strong, nonatomic) TextChatViewEventBlock handler;
@@ -72,7 +70,6 @@ static CGFloat StatusBarHeight = 20.0;
     self.tableView.estimatedRowHeight = 130.0;
     self.textField.delegate = self;
     self.textChatComponent = [[OTTextMessageManager alloc] init];
-    self.customizator = [[OTTextChatUICustomizator alloc] init];
     self.textChatComponent.delegate = self;
     self.countLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.textChatComponent.maximumTextMessageLength];
     
@@ -105,8 +102,6 @@ static CGFloat StatusBarHeight = 20.0;
     
     if (self.superview == nil) return;
     
-    [self updateTopBarUserInterface];
-    
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification
                                                       object:nil
                                                        queue:[NSOperationQueue currentQueue]
@@ -137,17 +132,6 @@ static CGFloat StatusBarHeight = 20.0;
             self.bottomViewLayoutConstraint.constant = 0;
         }];
     }];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:TextChatUIUpdatedNotificationName
-                                                      object:nil
-                                                       queue:[NSOperationQueue currentQueue]
-                                                  usingBlock:^(NSNotification *notification) {
-    
-        [self.tableView reloadData];
-        [self updateTopBarUserInterface];
-    }];
-
     
     [self addObserver:self
            forKeyPath:@"textChatComponent.receiverAlias"
@@ -253,11 +237,6 @@ static CGFloat StatusBarHeight = 20.0;
     [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
-- (void)updateTopBarUserInterface {
-    if(self.customizator.topBarBackgroundColor != nil) self.textChatTopView.backgroundColor = self.customizator.topBarBackgroundColor;
-    if(self.customizator.topBarTitleTextColor != nil) self.textChatTopViewTitle.textColor = self.customizator.topBarTitleTextColor;
-}
-
 #pragma mark - IBActions
 - (IBAction)closeButton:(UIButton *)sender {
     [self dismiss];
@@ -303,8 +282,7 @@ static CGFloat StatusBarHeight = 20.0;
     
     OTTextChatTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId
                                                                   forIndexPath:indexPath];
-    [cell updateCellFromTextChat:textChat
-                      customizer:self.customizator];
+    [cell updateCellFromTextChat:textChat];
     return cell;
 }
 

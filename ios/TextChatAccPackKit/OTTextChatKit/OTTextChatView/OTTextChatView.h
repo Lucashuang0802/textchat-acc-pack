@@ -4,7 +4,7 @@
 //  Copyright © 2016 Tokbox, Inc. All rights reserved.
 //
 
-#import <OTTextChatKit/OTTextChatUICustomizator.h>
+#import <UIKit/UIKit.h>
 #import <OTTextChatKit/OTTextMessage.h>
 
 /**
@@ -102,11 +102,6 @@ typedef void (^TextChatViewEventBlock)(TextChatViewEventSignal signal, OTTextMes
  *  A boolean value that indicates whether the text chat view is shown or hidden.
  */
 @property (readonly, nonatomic, getter=isShown) BOOL show;
-
-/**
- *  The object that manages modifiable user interfaces.
- */
-@property (readonly, nonatomic) OTTextChatUICustomizator *customizator;
 
 /**
  *  @return Returns an initialized text chat view object.

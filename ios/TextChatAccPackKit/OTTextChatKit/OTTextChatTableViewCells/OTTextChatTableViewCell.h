@@ -4,7 +4,7 @@
 //  Copyright © 2016 Tokbox, Inc. All rights reserved.
 //
 
-#import <OTTextChatKit/OTTextChatUICustomizator.h>
+#import <UIKit/UIKit.h>
 #import "OTTextMessage.h"
 #import "OTTextMessage_Private.h"
 
@@ -46,7 +46,6 @@
  *  @param textChat     The message being sent or received.
  *  @param customizer   UI customization for the bubble color or text color of the new message.
  */
--(void)updateCellFromTextChat:(OTTextMessage *)textChat
-                   customizer:(OTTextChatUICustomizator *)customizer;
+-(void)updateCellFromTextChat:(OTTextMessage *)textChat;
 
 @end

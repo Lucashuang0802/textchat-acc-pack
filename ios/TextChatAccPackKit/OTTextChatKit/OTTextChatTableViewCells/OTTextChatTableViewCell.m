@@ -6,7 +6,6 @@
 
 #import "OTTextChatTableViewCell.h"
 
-#import "OTTextChatUICustomizator.h"
 
 @implementation OTTextChatTableViewCell
 
@@ -43,8 +42,8 @@
     return view;
 }
 
--(void)updateCellFromTextChat:(OTTextMessage *)textChat
-                   customizer:(OTTextChatUICustomizator *)customizer {
+
+-(void)updateCellFromTextChat:(OTTextMessage *)textChat {
     
     if (!textChat) return;
     
@@ -55,22 +54,6 @@
     self.userLetterLabel.text = [msg_sender substringToIndex:1];
     self.userTimeLabel.text = [NSString stringWithFormat:@"%@, %@", msg_sender, [timeFormatter stringFromDate: current_date]];
     self.message.text = textChat.text;
-    
-    switch (textChat.type) {
-        case TCMessageTypesSent:
-        case TCMessageTypesSentShort:
-            if(customizer.tableViewCellSendBackgroundColor != nil) self.message.backgroundColor = customizer.tableViewCellSendBackgroundColor;
-            if(customizer.tableViewCellSendTextColor != nil) self.message.textColor = customizer.tableViewCellSendTextColor;
-            if(customizer.tableViewCellSendBackgroundColor != nil) self.cornerUpRightView.backgroundColor = customizer.tableViewCellSendBackgroundColor;
-            break;
-        case TCMessageTypesReceived:
-        case TCMessageTypesReceivedShort:
-            if(customizer.tableViewCellReceiveBackgroundColor != nil)self.message.backgroundColor = customizer.tableViewCellReceiveBackgroundColor;
-            if(customizer.tableViewCellReceiveTextColor != nil)self.message.textColor = customizer.tableViewCellReceiveTextColor;
-            if(customizer.tableViewCellReceiveBackgroundColor != nil)self.cornerUpLeftView.backgroundColor = customizer.tableViewCellReceiveBackgroundColor;
-            break;
-        default:
-            break;
-    }}
+}
 
 @end
