@@ -30,6 +30,33 @@ static NSString * const kSendOn = @"sentOn";
     return self;
 }
 
++ (instancetype)messageWithSenderId:(NSString *)senderId
+                              alias:(NSString *)alias
+                               text:(NSString *)text {
+    return [[self alloc] initWithSenderId:senderId
+                                    alias:alias
+                                 dateTime:[NSDate date]
+                                     text:text];
+}
+
+- (instancetype)initWithSenderId:(NSString *)senderId
+                           alias:(NSString *)alias
+                        dateTime:(NSDate *)dateTime
+                            text:(NSString *)text {
+    
+    NSParameterAssert(senderId != nil);
+    NSParameterAssert(alias != nil);
+    NSParameterAssert(dateTime != nil);
+    
+    if (self = [super init]) {
+        _senderId = [senderId copy];
+        _alias = [alias copy];
+        _dateTime = [dateTime copy];
+    }
+    return self;
+}
+
+
 - (instancetype)initWithJSONString:(NSString *)jsonString {
 
     if (!jsonString || !jsonString.length) return nil;
