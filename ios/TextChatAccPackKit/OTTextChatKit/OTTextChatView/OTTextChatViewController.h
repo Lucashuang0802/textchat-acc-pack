@@ -11,6 +11,8 @@
 
 @interface OTTextChatViewController : UIViewController
 
+@property (readonly, nonatomic) UINavigationBar *navigationBar;
+
 @property (readonly, weak, nonatomic) OTTextChatTableView *tableView;
 
 @property (readonly, weak, nonatomic) OTTextChatInputView *textChatInputView;

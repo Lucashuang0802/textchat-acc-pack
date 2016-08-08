@@ -24,7 +24,7 @@ static NSString* const kTextChatType = @"text-chat";
 @property (nonatomic) OTAcceleratorSession *session;
 @property (strong, nonatomic) OTTextChatViewEventBlock handler;
 
-@property (nonatomic) NSString *senderId;
+@property (nonatomic) NSString *connectionId;
 @property (nonatomic) NSString *receiverAlias;
 
 @end
@@ -158,7 +158,7 @@ static NSString* const kTextChatType = @"text-chat";
     
     if (self.session.sessionId) {
         
-        OTTextMessage *textMessage = [[OTTextMessage alloc] initWithMessage:message alias:self.alias senderId:self.senderId];
+        OTTextMessage *textMessage = [[OTTextMessage alloc] initWithMessage:message alias:self.alias senderId:self.connectionId];
         
         NSString *jsonString = [textMessage getTextChatSignalJSONString];
         if (!jsonString) {
@@ -231,7 +231,7 @@ static NSString* const kTextChatType = @"text-chat";
         [OTKLogger setSessionId:session.sessionId connectionId:session.connection.connectionId partnerId:@([self.session.apiKey integerValue])];
     }
     
-    self.senderId = session.connection.connectionId;
+    self.connectionId = session.connection.connectionId;
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(didConnectWithError:)]) {
         [self.delegate didConnectWithError:nil];

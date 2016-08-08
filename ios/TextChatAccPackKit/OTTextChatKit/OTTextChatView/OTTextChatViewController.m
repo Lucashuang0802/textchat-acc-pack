@@ -25,8 +25,10 @@
     NSInteger numberOfRowsInSection;
 }
 
+@property (nonatomic) UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet OTTextChatTableView *tableView;
 @property (weak, nonatomic) IBOutlet OTTextChatInputView *textChatInputView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewLayoutConstraint;
 
 @end
@@ -60,7 +62,6 @@
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 130.0;
-    self.textChatInputView.textField.delegate = self;
     
     NSBundle *textChatViewBundle = [OTTextChatKitBundle textChatKitBundle];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextChatSentTableViewCell"
@@ -82,6 +83,33 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TextChatComponentDivTableViewCell"
                                                bundle:textChatViewBundle]
          forCellReuseIdentifier:@"Divider"];
+    
+    typeOfTextChatTableView = [self.tableView.textChatTableViewDelegate typeOfTextChatTableView:self.tableView];
+    if (typeOfTextChatTableView == OTTextChatViewTypeDefault && !self.navigationController) {
+        self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 64.0f)];
+        self.navigationBar.backgroundColor = [UIColor clearColor];
+        self.navigationBar.barTintColor = [UIColor colorWithRed:70/255.0f green:156/255.0f blue:178/255.0f alpha:1.0f];
+        self.navigationBar.tintColor = [UIColor whiteColor];
+        [self.view addSubview:self.navigationBar];
+        
+        UINavigationItem *cancelNavigationItem = [[UINavigationItem alloc] init];
+        self.navigationBar.items = @[cancelNavigationItem];
+        
+        UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close_x_white" inBundle:[OTTextChatKitBundle textChatKitBundle] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
+        cancelNavigationItem.rightBarButtonItem = cancelBarButtonItem;
+        
+        // add top constraint
+        self.topLayoutConstraint.active = NO;
+        self.topLayoutConstraint = nil;
+        self.topLayoutConstraint = [NSLayoutConstraint constraintWithItem:self.tableView
+                                                                attribute:NSLayoutAttributeTop
+                                                                relatedBy:NSLayoutRelationEqual
+                                                                   toItem:self.navigationBar
+                                                                attribute:NSLayoutAttributeBottom
+                                                               multiplier:1.0
+                                                                 constant:0.0];
+        self.topLayoutConstraint.active = YES;
+    }
     
     __weak OTTextChatViewController *weakSelf = self;
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification
@@ -119,6 +147,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Private methods
 
 - (void)scrollTextChatTableViewToBottom {
@@ -136,7 +168,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (![tableView isKindOfClass:[OTTextChatTableView class]]) return 0;
     OTTextChatTableView *textChatTableView = (OTTextChatTableView *)tableView;
-    typeOfTextChatTableView = [textChatTableView.textChatTableViewDelegate typeOfTextChatTableView:textChatTableView];
+    typeOfTextChatTableView = [self.tableView.textChatTableViewDelegate typeOfTextChatTableView:self.tableView];
     numberOfRowsInSection = [textChatTableView.textChatTableViewDelegate textChatTableView:textChatTableView numberOfRowsInSection:section];
     return numberOfRowsInSection;
 }
@@ -207,42 +239,8 @@
     return [textChatTableView.textChatTableViewDelegate textChatTableView:textChatTableView cellForRowAtIndexPath:indexPath];
 }
 
-#pragma mark - UITextFieldDelegate
-
-//- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-//    [self onSendButton:textField];
-//    return NO;
-//}
-
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-//    // Allow a backspace always, in case we went over inputMaxChars
-//    const char *_char = [string cStringUsingEncoding:NSUTF8StringEncoding];
-//    if (strcmp(_char, "\b") == -8) {
-//        [self updateLabel:[textField.text length] - 1];
-//        return YES;
-//    }
-//
-//    // If it's not a backspace, allow it if we're still under 150 chars.
-//    NSUInteger newLength = [textField.text length] + [string length] - range.length;
-//    [self updateLabel: newLength];
-//    return (newLength >= self.textChatComponent.maximumTextMessageLength) ? NO : YES;
-//}
-//
-//
-//-(void)updateLabel: (NSUInteger )Charlength {
-//    [self.countLabel setHidden:YES];
-//    self.countLabel.textColor = [UIColor blackColor];
-//    self.textField.textColor = [UIColor blackColor];
-//
-//    NSUInteger charLeft = self.textChatComponent.maximumTextMessageLength - Charlength;
-//    NSUInteger closeEnd = round(self.textChatComponent.maximumTextMessageLength * .1);
-//    if (closeEnd >= 100) closeEnd = 30;
-//    if (charLeft <= closeEnd) {
-//        [self.countLabel setHidden:NO];
-//        self.countLabel.textColor = [UIColor redColor];
-//        self.textField.textColor = [UIColor redColor];
-//    }
-//    NSString* charCountStr = [NSString stringWithFormat:@"%lu", (unsigned long)charLeft];
-//    self.countLabel.text = charCountStr;
-//}
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.textChatInputView.textField resignFirstResponder];
+}
 @end

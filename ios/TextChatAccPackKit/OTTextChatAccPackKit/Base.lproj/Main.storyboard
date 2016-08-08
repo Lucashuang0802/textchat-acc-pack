@@ -23,6 +23,24 @@
             </objects>
             <point key="canvasLocation" x="547" y="366"/>
         </scene>
+        <!--Default Text Chat Table View Controller-->
+        <scene sceneID="c5u-bR-8a6">
+            <objects>
+                <viewController id="5AV-zo-VLw" customClass="DefaultTextChatTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y92-Mh-WMb"/>
+                        <viewControllerLayoutGuide type="bottom" id="8hf-0T-gup"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P0b-Ac-y9b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWv-KK-v4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-88" y="1456"/>
+        </scene>
         <!--Custom Text Chat Table View Controller-->
         <scene sceneID="5uW-Az-R64">
             <objects>
@@ -59,7 +77,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Default text chat table view controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bT5-2W-iol">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Push default text chat table view controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bT5-2W-iol">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -72,8 +90,28 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="8r8-p6-Sow"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="JSw-xi-AFz" style="IBUITableViewCellStyleDefault" id="juh-Hz-uJY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="3kP-3S-dYd" style="IBUITableViewCellStyleDefault" id="Nmb-ZS-ooX">
                                         <rect key="frame" x="0.0" y="108" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nmb-ZS-ooX" id="b7t-hS-k1E">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Modal default text chat table view controlller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3kP-3S-dYd">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="5AV-zo-VLw" kind="presentation" id="VSG-BJ-lpP"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="JSw-xi-AFz" style="IBUITableViewCellStyleDefault" id="juh-Hz-uJY">
+                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="juh-Hz-uJY" id="tC3-jK-Tsg">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>

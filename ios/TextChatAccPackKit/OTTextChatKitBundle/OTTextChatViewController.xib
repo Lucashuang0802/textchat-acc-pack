@@ -11,6 +11,7 @@
                 <outlet property="bottomViewLayoutConstraint" destination="BDx-0y-QEa" id="DjS-s8-PCo"/>
                 <outlet property="tableView" destination="Vs3-Xl-UAu" id="Sp5-Ie-hBS"/>
                 <outlet property="textChatInputView" destination="g2e-c5-Iop" id="Rog-qg-fTE"/>
+                <outlet property="topLayoutConstraint" destination="4iu-Ut-09v" id="g6f-hJ-KOr"/>
                 <outlet property="view" destination="Jni-2G-y9P" id="dgw-cw-Qgj"/>
             </connections>
         </placeholder>
@@ -42,20 +43,12 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUs-f4-fVa">
-                            <rect key="frame" x="460" y="40" width="0.0" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="SUs-f4-fVa" firstAttribute="trailing" secondItem="W4b-sR-n6W" secondAttribute="trailing" constant="-4" id="1dz-nx-dGf"/>
                         <constraint firstAttribute="trailing" secondItem="Iwk-Tz-4GW" secondAttribute="trailing" constant="8" id="1j4-jY-6EL"/>
                         <constraint firstItem="W4b-sR-n6W" firstAttribute="width" secondItem="g2e-c5-Iop" secondAttribute="width" multiplier="0.76" id="NNY-lm-M1r"/>
                         <constraint firstItem="W4b-sR-n6W" firstAttribute="height" secondItem="g2e-c5-Iop" secondAttribute="height" multiplier="0.7" id="YsE-Cx-l0J"/>
-                        <constraint firstItem="SUs-f4-fVa" firstAttribute="bottom" secondItem="W4b-sR-n6W" secondAttribute="bottom" constant="-2" id="eYS-Gz-pSf"/>
                         <constraint firstAttribute="height" constant="50" id="ieK-ji-kT1"/>
                         <constraint firstItem="W4b-sR-n6W" firstAttribute="centerY" secondItem="g2e-c5-Iop" secondAttribute="centerY" id="qP3-RA-XNo"/>
                         <constraint firstItem="Iwk-Tz-4GW" firstAttribute="centerY" secondItem="g2e-c5-Iop" secondAttribute="centerY" id="uT4-62-270"/>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomSendTextChatTableViewCell" id="KGk-i7-Jjw" customClass="CustomSendTextChatTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EH8-jx-VBr">
+                        <rect key="frame" x="316" y="4" width="4" height="91.5"/>
+                        <color key="backgroundColor" red="0.16470588235294117" green="0.80784313725490198" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="4" id="Sb4-9t-JYn"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19W-Zv-qDA">
+                        <rect key="frame" x="16" y="16" width="284" height="75.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Me" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WO4-wA-1Rb">
+                                <rect key="frame" x="263.5" y="0.0" width="20" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:50pm" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePW-jX-rh5">
+                                <rect key="frame" x="212.5" y="2" width="47" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xv7-HL-o4n">
+                                <rect key="frame" x="0.0" y="17" width="284" height="58.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Soda wicket wolf porkchop?">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WO4-wA-1Rb" firstAttribute="baseline" secondItem="ePW-jX-rh5" secondAttribute="baseline" id="93G-Vf-q0N"/>
+                            <constraint firstItem="WO4-wA-1Rb" firstAttribute="leading" secondItem="ePW-jX-rh5" secondAttribute="trailing" constant="4" id="LPd-G0-YPV"/>
+                            <constraint firstAttribute="trailing" secondItem="Xv7-HL-o4n" secondAttribute="trailing" id="Ov1-yJ-s2D"/>
+                            <constraint firstItem="Xv7-HL-o4n" firstAttribute="leading" secondItem="19W-Zv-qDA" secondAttribute="leading" id="WTy-Fm-UFn"/>
+                            <constraint firstAttribute="bottom" secondItem="Xv7-HL-o4n" secondAttribute="bottom" id="awB-FG-v05"/>
+                            <constraint firstAttribute="trailing" secondItem="WO4-wA-1Rb" secondAttribute="trailing" id="cma-x6-wQB"/>
+                            <constraint firstItem="WO4-wA-1Rb" firstAttribute="top" secondItem="19W-Zv-qDA" secondAttribute="top" id="d0X-Wi-tuq"/>
+                            <constraint firstItem="Xv7-HL-o4n" firstAttribute="top" secondItem="WO4-wA-1Rb" secondAttribute="bottom" id="hPZ-e2-P2y"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EH8-jx-VBr" firstAttribute="leading" secondItem="19W-Zv-qDA" secondAttribute="trailing" constant="16" id="2je-uo-fTe"/>
+                    <constraint firstItem="EH8-jx-VBr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="9Al-sK-EDC"/>
+                    <constraint firstItem="19W-Zv-qDA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="TVZ-XP-eAp"/>
+                    <constraint firstAttribute="bottom" secondItem="19W-Zv-qDA" secondAttribute="bottom" constant="8" id="WBs-om-yKe"/>
+                    <constraint firstAttribute="bottom" secondItem="EH8-jx-VBr" secondAttribute="bottom" constant="4" id="WbT-db-bwO"/>
+                    <constraint firstItem="19W-Zv-qDA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="ffD-tn-0e2"/>
+                    <constraint firstAttribute="trailing" secondItem="EH8-jx-VBr" secondAttribute="trailing" id="vKq-nf-4El"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="textLabel" destination="Xv7-HL-o4n" id="HPY-qT-tUy"/>
+                <outlet property="timeLabel" destination="ePW-jX-rh5" id="SsD-AD-hvu"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
