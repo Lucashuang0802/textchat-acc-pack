@@ -20,7 +20,10 @@
 
 static NSString* const kTextChatType = @"text-chat";
 
-@interface OTTextChat() <OTSessionDelegate>
+@interface OTTextChat() <OTSessionDelegate> {
+    OTConnection *receiverConnection;
+}
+
 @property (nonatomic) OTAcceleratorSession *session;
 @property (strong, nonatomic) OTTextChatViewEventBlock handler;
 
@@ -58,6 +61,10 @@ static NSString* const kTextChatType = @"text-chat";
         _session = [OTAcceleratorSession getAcceleratorPackSession];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)connect {
@@ -177,7 +184,7 @@ static NSString* const kTextChatType = @"text-chat";
         
         [self.session signalWithType:kTextChatType
                               string:jsonString
-                          connection:nil
+                          connection:receiverConnection
                                error:&error];
         
         if (error) {
@@ -268,6 +275,12 @@ static NSString* const kTextChatType = @"text-chat";
 
 - (void)session:(OTSession *)session streamCreated:(OTStream *)stream {}
 - (void)session:(OTSession *)session streamDestroyed:(OTStream *)stream{}
+
+- (void)session:(OTSession*) session connectionCreated:(OTConnection*)connection {
+    
+    // store receiverConnection for sending message to a point rather than boardcasting
+    receiverConnection = connection;
+}
 
 - (void)session:(OTSession*)session
 receivedSignalType:(NSString*)type

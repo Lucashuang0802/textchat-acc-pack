@@ -8,8 +8,6 @@
 
 #import "OTTextChatTableView.h"
 
-
 @implementation OTTextChatTableView
 @dynamic dataSource;
-
 @end

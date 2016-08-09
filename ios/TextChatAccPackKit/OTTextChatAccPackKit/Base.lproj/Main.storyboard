@@ -117,7 +117,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Custom text chat table view controlller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JSw-xi-AFz">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Modal Custom text chat table view controlller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JSw-xi-AFz">
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -127,7 +127,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="iam-bP-UBf" kind="show" id="aC3-m0-UEd"/>
+                                            <segue destination="iam-bP-UBf" kind="presentation" id="aC3-m0-UEd"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

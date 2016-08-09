@@ -8,6 +8,7 @@
 #import "OTTextMessage_Private.h"
 #import "OTTextChatViewController.h"
 #import "OTTextChatTableViewCell.h"
+#import "OTTextChatNavigationBar_Private.h"
 
 #import <OTAcceleratorPackUtil/OTAcceleratorPackUtil.h>
 #import <OTKAnalytics/OTKLogger.h>
@@ -18,14 +19,12 @@
 #import "Constant.h"
 #import "UIViewController+Helper.h"
 
-//static CGFloat StatusBarHeight = 20.0;
-
 @interface OTTextChatViewController() <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     OTTextChatViewType typeOfTextChatTableView;
     NSInteger numberOfRowsInSection;
 }
 
-@property (nonatomic) UINavigationBar *navigationBar;
+@property (nonatomic) OTTextChatNavigationBar *textChatNavigationBar;
 @property (weak, nonatomic) IBOutlet OTTextChatTableView *tableView;
 @property (weak, nonatomic) IBOutlet OTTextChatInputView *textChatInputView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
@@ -86,17 +85,16 @@
     
     typeOfTextChatTableView = [self.tableView.textChatTableViewDelegate typeOfTextChatTableView:self.tableView];
     if (typeOfTextChatTableView == OTTextChatViewTypeDefault && !self.navigationController) {
-        self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 64.0f)];
-        self.navigationBar.backgroundColor = [UIColor clearColor];
-        self.navigationBar.barTintColor = [UIColor colorWithRed:70/255.0f green:156/255.0f blue:178/255.0f alpha:1.0f];
-        self.navigationBar.tintColor = [UIColor whiteColor];
-        [self.view addSubview:self.navigationBar];
+        
+        self.textChatNavigationBar = [[OTTextChatNavigationBar alloc] init];
+        self.textChatNavigationBar.navigationBarHeight = 64.0f;
+        
+        [self.view addSubview:self.textChatNavigationBar];
         
         UINavigationItem *cancelNavigationItem = [[UINavigationItem alloc] init];
-        self.navigationBar.items = @[cancelNavigationItem];
-        
         UIBarButtonItem *cancelBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"close_x_white" inBundle:[OTTextChatKitBundle textChatKitBundle] compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(dismiss)];
         cancelNavigationItem.rightBarButtonItem = cancelBarButtonItem;
+        self.textChatNavigationBar.items = @[cancelNavigationItem];
         
         // add top constraint
         self.topLayoutConstraint.active = NO;
@@ -104,7 +102,7 @@
         self.topLayoutConstraint = [NSLayoutConstraint constraintWithItem:self.tableView
                                                                 attribute:NSLayoutAttributeTop
                                                                 relatedBy:NSLayoutRelationEqual
-                                                                   toItem:self.navigationBar
+                                                                   toItem:self.textChatNavigationBar
                                                                 attribute:NSLayoutAttributeBottom
                                                                multiplier:1.0
                                                                  constant:0.0];
@@ -143,6 +141,21 @@
                                                   }];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone &&
+             (orientation == UIDeviceOrientationLandscapeLeft || orientation == UIDeviceOrientationLandscapeRight)) {
+        
+        self.textChatNavigationBar.navigationBarHeight = 44.0f;
+    }
+    else {
+        
+        self.textChatNavigationBar.navigationBarHeight = 64.0f;
+    }
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -160,7 +173,12 @@
     }
     
     NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:(numberOfRowsInSection - 1) inSection:0];
-    [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    
+    // this is the workaround for iOS 8
+    // so it won't have jerky scrolling once you update table view
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView scrollToRowAtIndexPath:lastIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    });
 }
 
 #pragma mark - UITableViewDataSource

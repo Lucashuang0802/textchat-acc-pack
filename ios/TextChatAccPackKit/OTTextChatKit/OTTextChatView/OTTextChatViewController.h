@@ -8,10 +8,11 @@
 #import <OTTextChatKit/OTTextMessage.h>
 #import <OTTextChatKit/OTTextChatTableView.h>
 #import <OTTextChatKit/OTTextChatInputView.h>
+#import <OTTextChatKit/OTTextChatNavigationBar.h>
 
 @interface OTTextChatViewController : UIViewController
 
-@property (readonly, nonatomic) UINavigationBar *navigationBar;
+@property (readonly, nonatomic) OTTextChatNavigationBar *textChatNavigationBar;
 
 @property (readonly, weak, nonatomic) OTTextChatTableView *tableView;
 

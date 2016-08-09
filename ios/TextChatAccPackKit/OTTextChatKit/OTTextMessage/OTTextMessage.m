@@ -104,7 +104,7 @@ static NSString * const kSendOn = @"sentOn";
                                    kSenderAlias: self.alias,
                                    kSenderId: self.senderId,
                                    },
-                           kSendOn: @([self.dateTime timeIntervalSince1970] * 1000)
+                           kSendOn: [NSString stringWithFormat:@"%@", @([self.dateTime timeIntervalSince1970] * 1000)]
                            };
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:json options:NSJSONWritingPrettyPrinted error:&jsonError];
     if (jsonError) {

@@ -8,4 +8,5 @@
 #import <OTTextChatKit/OTTextChatInputView.h>
 #import <OTTextChatKit/OTTextChatTableView.h>
 #import <OTTextChatKit/OTTextChatViewController.h>
+#import <OTTextChatKit/OTTextChatNavigationBar.h>
 #import <OTTextChatKit/OTTextMessage.h>

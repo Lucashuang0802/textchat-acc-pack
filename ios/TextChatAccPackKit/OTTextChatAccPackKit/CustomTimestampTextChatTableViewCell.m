@@ -1,15 +1,14 @@
 //
-//  CustomSendTextChatTableViewCell.m
+//  CustomTimestampTextChatTableViewCell.m
 //  OTTextChatAccPackKit
 //
-//  Created by Xi Huang on 8/7/16.
+//  Created by Xi Huang on 8/8/16.
 //  Copyright © 2016 Tokbox, Inc. All rights reserved.
 //
 
-#import "CustomSendTextChatTableViewCell.h"
+#import "CustomTimestampTextChatTableViewCell.h"
 
-@implementation CustomSendTextChatTableViewCell
-@synthesize textLabel;
+@implementation CustomTimestampTextChatTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

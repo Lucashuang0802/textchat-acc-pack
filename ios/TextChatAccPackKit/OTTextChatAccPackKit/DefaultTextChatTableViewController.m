@@ -25,8 +25,9 @@
     self.textChat.alias = @"Tokboxer";
     self.textMessages = [[NSMutableArray alloc] init];
     
-    self.navigationBar.topItem.title = self.textChat.alias;
+    self.textChatNavigationBar.topItem.title = self.textChat.alias;
     self.tableView.textChatTableViewDelegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.textChatInputView.textField.delegate = self;
     
     __weak DefaultTextChatTableViewController *weakSelf = self;
